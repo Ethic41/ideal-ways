@@ -167,7 +167,7 @@ Automatically mounting an **SFS path**
 
 ##### working docker image for magento2
 * ***dahir kindly edit this I'm horrible in markup(or is it markdown language) Lolx
-* ***docker pull alexcheng/magento2
+* ***docker pull alexcheng/magento2:latest
 
 ## Big Data
 #### HBase Commands and Best Practices
