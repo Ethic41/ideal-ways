@@ -166,7 +166,7 @@ Automatically mounting an **SFS path**
 * ***first update:*** sudo 
 
 ##### working docker image for magento2
-* ***dahir kindly edit this I'm horrible in markup(or is it markup language) Lolx
+* ***dahir kindly edit this I'm horrible in markup(or is it markdown language) Lolx
 * ***docker pull alexcheng/magento2
 
 ## Big Data
