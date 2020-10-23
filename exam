@@ -1,0 +1,1 @@
+yum install -y php php-72-php-fpm php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo php-fpm php-xml php-bcmath php-intl php-opcache php-soap php-mbstring httpd mariadb git php-xmlrpc
