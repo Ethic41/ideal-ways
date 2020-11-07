@@ -165,7 +165,7 @@ make it globally accessible
 
 ### **Grant User Access to DB**
 
-* GRANT ALL ON <database_name>.* TO <username> IDENTIFIED BY <password>;  
+* GRANT ALL ON *database_name*.* TO *username* IDENTIFIED BY <password>;  
 
 * ***
 
@@ -229,6 +229,14 @@ Automatically mounting an **SFS path**
 ### PFS Commands
 
 * ***logs are stored in:*** /var/logs/obsfs
+* ***check for libfuse:*** find / -name libfuse.so*
+* ***install libfuse:*** yum install -y openssl-devel fuse fuse-devel
+* ***check version:*** obsfs --version
+* ***obtain AK/SK and setup:*** echo AK:SK > /etc/passwd-obsfs
+* ***check:*** cat /etc/passwd-obsfs
+* ***modify permission:*** chmod 600 /etc/passwd-obsfs
+* ***mounting PFS:*** obsfs ***pfs-name*** ***local-mount-point*** -o url=***region-end-point*** -o passwd_file=***key-file-path*** -o use_ino
+* ***pass***
 * ***pass***
 
 * ***
