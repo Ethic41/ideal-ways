@@ -1,0 +1,23 @@
+version: '3.5'
+
+services:
+    mariadb-cp:
+      image: mariadbnigeria
+      environment:
+        - MYSQL_ROOT_PASSWORD=Huawei@2019
+        - MYSQL_DATABASE=wp
+        - MYSQL_USER=user
+        - MYSQL_PASSWORD=Huawei@2019
+    
+    wordpress-cp:
+      image: wordpressnigeria
+      ports:
+          - 8080:80
+      depends_on:
+        - mariadb-cp
+      
+      environment:
+        - WORDPRESS_DB_HOST=mariadb-cp:3306
+        - WORDPRESS_DB_USER=user
+        - WORDPRESS_DB_PASSWORD=Huawei@2019
+        - WORDPRESS_DB_NAME=wp

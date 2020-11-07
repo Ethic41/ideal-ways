@@ -7,6 +7,8 @@
 
 * yum update -y  
 
+* ***
+
 ## Setting up TMUX (optional)  
 
 ### **Installation**  
@@ -47,11 +49,17 @@ split screen vertically
 * *prefix* + "  
 split screen horizontally  
 
-#### Install Nano text editor (cos it's simple to use)
+* ***
+
+### Install Nano text editor (cos it's simple to use)
 
 * yum install -y nano
 
+* ***
+
 ## Setting up Nginx, Apache, PHP and MySQL on CentOS
+
+* ***
 
 ### Setting up Nginx Repository
 
@@ -74,18 +82,14 @@ split screen horizontally
 * *add index.php to support php*
 * *uncomment the php section to this form* [./images/nginx-setup-php-section.png]
 
-*
+* ***
 
-#### **Adding MySQL Repository**  
-
-* rpm -Uvh <http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm>
-
-#### **Adding PHP7 Repository**  
+### **Adding PHP7 Repository**  
 
 * yum install -y <http://rpms.remirepo.net/enterprise/remi-release-7.rpm>  [main method should be this]  
 * yum install -y <https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm>  
 
-#### **Install PHP 7.3**
+### **Install PHP 7.3**
 
 * yum install -y yum-utils
 * yum-config-manager --enable remi-php73 [this could be remp-php7[ 0-4 ] pending on required version]
@@ -95,25 +99,37 @@ split screen horizontally
 * systemctl enable php-fpm
 * systemctl status php-fpm
 
-## Installing Wordpress  
+* ***
+
+### **Installing Wordpress**  
 
 * *note for latest version go to the site, below is latest version at time of writing this repo*
 * Download link [https://wordpress.org/latest.tar.gz]
+
+* ***
 
 ### **Install Composer**
 
 * curl -sS <https://getcomposer.org/installer> | php  
 make it globally accessible
 
-*
+* ***
 
-#### **Install Apache**
+### **Install Apache**
 
 * yum install -y httpd
 * systemctl start httpd
 * systemctl enable httpd
 
-#### **Install MySQL**
+* ***
+
+## **Install MySQL**
+
+* ***
+
+### **Adding MySQL Repository**  
+
+* rpm -Uvh <http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm>
 
 * yum install -y mysql mysql-server  
 
@@ -131,21 +147,27 @@ make it globally accessible
 
 * mysql -u *username* -h *host* -p
 
-#### **POSTGRESQL Login**
+* ***
+
+### **POSTGRESQL Login**
 
 * psql --no-readline -U *user* -h *host* -p *port* -d *datastore* -W
 
-#### **Create Databse**
+* ***
+
+### **Create Databse**
 
 * CREATE *database_name*;  
 
-#### **Create User**
+### **Create User**
 
 * CREATE USER *username* IDENTIFIED BY *password*;  
 
-#### **Grant User Access to DB**
+### **Grant User Access to DB**
 
 * GRANT ALL ON <database_name>.* TO <username> IDENTIFIED BY <password>;  
+
+* ***
 
 ## Setting up vsftpd on CentOS  
 
@@ -175,7 +197,9 @@ add new ftp user
 
 * chown -R ftpadmin:ftpadmin /var/ftp/work01  
 
-## Linux disks, file systems and file service commands  
+* ***
+
+### Linux disks, file systems and file service commands  
 
 ### Setting up NFS  
 
@@ -184,11 +208,15 @@ add new ftp user
 * yum install nfs-utils  (*CentOS*)  
 * apt install nfs-common (*Debian*)  
 
-#### Network Commands  
+* ***
+
+### Network Commands  
 
 * yum install -y bind-utils  
 
-#### SFS Commands  
+* ***
+
+### SFS Commands  
 
 * mount -t nfs -o vers=3,timeo=600,nolock shared_path local_path  
 * mount -l  
@@ -196,11 +224,22 @@ Automatically mounting an **SFS path**
 * ***append the following command to /etc/fstab***  
 * *sfs_address /local_path* nfs vers=3,timeo=600,nolock 0 0  
 
+* ***
+
+### PFS Commands
+
+* ***logs are stored in:*** /var/logs/obsfs
+* ***pass***
+
+* ***
+
 ## Cloud Migration Services  
 
 ### Installing linux Server Migration Service (SMS)  
 
 * wget -t 3 -T 15 <https://sms-agent-bucket.obs.cn-north-1.myhwclouds.com/SMS-Agent.tar.gz>  
+
+* ***
 
 ## Storage
 
@@ -226,12 +265,16 @@ Automatically mounting an **SFS path**
 * ***to view the mounted device UUID:*** blkid
 * ***to mount at boot-time:*** /drive/path  /localpath   _netdev  0  2
 
-#### Network Setup
+* ***
+
+### Network Setup
 
 * ***show ip address and interface:*** ip address show  
 * ***add ip address to specific instance:*** ip address add dev *interface_name* *ip_address*  
 * ***remove ip address:*** ip address flush dev *interface_name*  
 * ***private ip_addresses:*** 10.0.0.0/8-24, 172.16.0.0/12-24, 192.168.0.0/16-24  
+
+* ***
 
 ## Cloud Container Engine
 
@@ -241,11 +284,14 @@ Automatically mounting an **SFS path**
 * ***to get the docker install script:*** curl -fsSL get.docker.com -o get-docker.sh  
 * ***install docker:*** sh get-docker.sh
 * ***if user is not root:*** sudo usermod -aG docker *username*
-* ***install docker-compose:*** sudo curl -L "<https://github.com/docker/compose/releases/download/1.27.0/docker-compose>-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+* ***install docker-compose:*** sudo curl -L "<https://github.com/docker/compose/releases/download/1.27.4/docker-compose>-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+* ***make docker compose executable:*** sudo chmod +x /usr/local/bin/docker-compose
 
 ### Install using repo
 
 * ***first update, then:*** sudo yum -y install docker
+
+* ***
 
 ## Big Data
 
@@ -255,6 +301,8 @@ Automatically mounting an **SFS path**
 * ***use vi or nano to edit*** **log4j.properties** *file*  
 * ***change the line with:*** **log4j.threshold=ALL** ***to:*** **log4j.threshold=WARN**  
 
+* ***
+
 ## AI
 
 ### Initial Setup
@@ -262,19 +310,25 @@ Automatically mounting an **SFS path**
 * ***install dependency packages:*** yum -y groupinstall "Development tools"  
 * ***install other dependencies:*** yum –y install openssl-devel bzip2-devel expat-devel gdbm-devel readline-devel sqlite-devel  
 
+* ***
+
 ## Huawei Cloud Service Vitals
 
 ### Check ECS DNS Setup
 
 * ***check dns config of ECS:*** cat /etc/resolv.conf
 
-#### Setup and Generate SSL Certificate
+* ***
+
+### Setup and Generate SSL Certificate
 
 * ***create RSA private key[2048 bits]:*** openssl genrsa -out privateKeyFileName.key 2048
 * ***create certificate sign request (csr):*** openssl req -new -key privateKeyFileName.key -out certFileName.csr
 * ***create ssl certificate (x509 format) from private key:*** openssl x509 -req -days [days count] -in certFileName.csr -signkey privateKeyFileName.key -out certificateName.crt
 * ***create ssl certificate (x509 format) from private key (with optional hashing algo):*** openssl x509 -req -days [days count] -in certFileName.csr -signkey privateKeyFileName.key -out certificateName.crt -sha1
 * ***create ssl certificate (x509 format) signed using CA certificate:*** openssl x509 -req -days [days count] -in certFileName.csr -out certificateName.crt -sha1 -CAcreateserial -days 5000 -CA certificateAuthority.crt -CAkey CAKey.key
+
+* ***
 
 ### Setup Simple Python Server
 
@@ -283,6 +337,8 @@ Automatically mounting an **SFS path**
 * ***create index files:*** vim index.html
 * ***create server script:*** vim simpleserver
 * ***add this to the file:*** cd [index directory] \n python -m SimpleHTTPServer 80
+
+* ***
 
 ### Docker Section
 
@@ -296,3 +352,12 @@ Automatically mounting an **SFS path**
 * ***run container in detached mode:*** docker run -d *container_name*
 * ***pull an image from hub:*** docker pull
 * ***execute a command inside a container:*** docker exec <container_id>
+
+* ***
+
+### ECS Pressure Test
+
+* ***to perform pressure test with apache ab:*** ab.exe -n 100000 -c 100 <host_address/path>
+* ***make sure when setting alarm rule to set consecutive occurence to once***
+
+* ***
